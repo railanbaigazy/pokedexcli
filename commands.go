@@ -25,6 +25,16 @@ func initCommands() {
 			description: "Exit the Pokedex",
 			callback:    commandExit,
 		},
+		"map": {
+			name:        "map",
+			description: "Displays the names of 20 location areas in the Pokemon world. Each subsequent call to map should display the next 20 locations",
+			callback:    commandMap,
+		},
+		"mapb": {
+			name:        "mapb",
+			description: "Similar to the map command, however, instead of displaying the next 20 locations, it displays the previous 20 locations. It's a way to go back",
+			callback:    commandMapB,
+		},
 	}
 }
 
@@ -39,5 +49,9 @@ func commandHelp() error {
 
 func commandExit() error {
 	os.Exit(0)
+	return nil
+}
+
+func commandMapB() error {
 	return nil
 }

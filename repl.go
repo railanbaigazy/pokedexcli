@@ -21,13 +21,17 @@ func startRepl(cfg *config) {
 		}
 
 		commandName := cleaned[0]
+		args := []string{}
+		if len(cleaned) > 1 {
+			args = cleaned[1:]
+		}
 		command, ok := cliCommands[commandName]
 		if !ok {
 			fmt.Println("Invalid command")
 			continue
 		}
 
-		if err := command.callback(cfg); err != nil {
+		if err := command.callback(cfg, args...); err != nil {
 			fmt.Println(err)
 		}
 	}

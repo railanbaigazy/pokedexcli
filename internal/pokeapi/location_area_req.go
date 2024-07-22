@@ -15,12 +15,12 @@ func (c *Client) ListLocationAreas() (LocationAreasResp, error) {
 	if err != nil {
 		return LocationAreasResp{}, err
 	}
-	defer req.Body.Close()
 
 	res, err := c.httpClient.Do(req)
 	if err != nil {
 		return LocationAreasResp{}, err
 	}
+	defer res.Body.Close()
 
 	if res.StatusCode > 399 {
 		return LocationAreasResp{}, fmt.Errorf("bad status code: %v", res.StatusCode)

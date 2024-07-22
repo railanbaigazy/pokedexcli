@@ -1,14 +1,13 @@
 package main
 
 import (
-	"fmt"
 	"os"
 )
 
 type cliCommand struct {
 	name        string
 	description string
-	callback    func() error
+	callback    func(*config) error
 }
 
 var cliCommands map[string]cliCommand
@@ -38,20 +37,7 @@ func initCommands() {
 	}
 }
 
-func commandHelp() error {
-	fmt.Printf("\nWelcome to the Pokedex!\nUsage:\n\n")
-	for _, command := range cliCommands {
-		fmt.Printf(" - %s: %s\n", command.name, command.description)
-	}
-	fmt.Printf("\n")
-	return nil
-}
-
-func commandExit() error {
+func commandExit(cfg *config) error {
 	os.Exit(0)
-	return nil
-}
-
-func commandMapB() error {
 	return nil
 }

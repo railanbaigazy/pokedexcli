@@ -34,6 +34,11 @@ func initCommands() {
 			description: "List the pokemon in a location area",
 			callback:    commandExplore,
 		},
+		"catch": {
+			name:        "catch {pokemon_name}",
+			description: "Attempt to catch a pokemon and add it to your pokedex",
+			callback:    commandCatch,
+		},
 		"exit": {
 			name:        "exit",
 			description: "Exit the Pokedex",
